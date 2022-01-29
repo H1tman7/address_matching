@@ -23,10 +23,10 @@ int main(){
     }
     cout << "Count of Winners: " << winners << endl << endl; // Выводим количество адресов, с которыми будем сравнивать
 
-    fin2.clear(); // Возвращаем указатели к началу файлов
-    fin1.clear();
-    fin2.seekg(0); 
+    fin1.clear(); // Возвращаем указатели к началу файлов
     fin1.seekg(0);
+    fin2.clear();
+    fin2.seekg(0); 
 
     for(int i = 0; i < my_addresses; ++i){
         fin1.getline(str1, ad_len);       //Считываем адрес из первого файла
