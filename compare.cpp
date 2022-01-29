@@ -47,4 +47,6 @@ int main(){
     delete str2;
 
     cout << "\nResult = " << res << endl << endl; //Вывод количества совпадений
+    
+    return 0;
 }
