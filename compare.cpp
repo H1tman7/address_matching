@@ -40,9 +40,6 @@ int main(){
         }
     }
 
-    fin1.close(); // Закрытие файлов
-    fin2.close();
-
     delete[] str1; // Очистка памяти
     delete[] str2;
 
