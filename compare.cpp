@@ -5,15 +5,22 @@
 using namespace std;
 
 int main(){
-    int ad_len = 43, my_addresses = 0, winners = 0, res = 0;
-
+    unsigned int ad_len, my_addresses = 0, winners = 0, res = 0;
+    string address;
     char *str1 = new char[ad_len];
-    ifstream fin1("my addresses.txt");
-    while (!fin1.eof()){
+
+    ifstream fin1("my addresses.txt");  //Открываем файл с моими адресами
+    fin1 >> address;                    //считываем первую строку(адрес)
+    ad_len = address.size() + 1;        //получаем длину адреса
+
+    cout << "\nLength of the address: " << ad_len - 1 << endl; //Выводим длину адреса
+
+    while (!fin1.eof()){                //Считаем количество адресов, которые будем сравнивать
         fin1.getline(str1, ad_len);
         my_addresses++;
     }
-    cout << "\nCount of your addresses: " << my_addresses << endl; //Выводим количество адресов, которые будем сравнивать
+    
+    cout << "Count of your addresses: " << my_addresses << endl; //Выводим количество адресов, которые будем сравнивать
 
     char *str2 = new char[ad_len];
     ifstream fin2("winners.txt");
@@ -35,10 +42,12 @@ int main(){
             if(strcmp(str1, str2) == 0){  // Сравниваем адреса
                 cout << res + 1 << ") " << str1 << endl; //Если адреса совпали, выводим совпадение
                 res++;
+                fin2.seekg(0);
                 break;
             }
         }
     }
+    cout << endl;
 
     fin1.close(); //Закрытие файлов
     fin2.close();
